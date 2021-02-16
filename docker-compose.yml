@@ -1,0 +1,26 @@
+version: "2.1"
+services:
+  filling:
+    build: ./api_parsing/
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+        - db
+
+  app :
+    build: ./processes/
+    ports:
+    - 5000:5000
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
+  db:
+    build: ./database/
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U username -h db -p 5432" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5

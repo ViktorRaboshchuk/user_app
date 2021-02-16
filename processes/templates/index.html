@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+                <table>
+                    <thead>
+                        <tr class="table100-head">
+                            <th class="column1">Id</th>
+                            <th class="column2">Full Name</th>
+                            <th class="column3">State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                                <tr>
+                                    <td  class="column1"><a href="{{ url_for('user_info',user_id = user.id) }}">{{user.id}}</a></td>
+                                    <td class="column2"><a href="{{ url_for('user_info',user_id = user.id) }}">{{user['name']}}</a></td>
+                                    <td class="column3"><a href="{{ url_for('user_info',user_id = user.id) }}">{{user.state}}</a></td>
+                                </tr>
+<!--                                <tr>-->
+<!--                                    <td  class="column1">{{user.id}}</td>-->
+<!--                                    <td class="column2">{{user.name}}</td>-->
+<!--                                    <td class="column3">{{user.state}}</td>-->
+<!--                                </tr>-->
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

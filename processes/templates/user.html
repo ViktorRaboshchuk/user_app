@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+                <table>
+                    <thead>
+                            <tr class="table100-head">
+                                <th class="column1">Id</th>
+                                <th class="column2">Full Name</th>
+                                <th class="column3">DOB</th>
+                                <th class="column4">AGE</th>
+                                <th class="column6">State</th>
+                                <th class="column7">City</th>
+                                <th class="column8">Street</th>
+                                <th class="column5">Country</th>
+                                <th class="column9">phone</th>
+                                <th class="column10"></th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td class="column1">{{user.id}}</td>
+                                <td class="column2">{{user.full_name}}</td>
+                                <td class="column3">{{user.dob}}</td>
+                                <td class="column4">{{user.age}}</td>
+                                <td class="column6">{{user.state}}</td>
+                                <td class="column7">{{user.city}}</td>
+                                <td class="column8">{{user.street}}</td>
+                                <td class="column5">{{user.country}}</td>
+                                <td class="column9">{{user.phone}}</td>
+                                <td>
+                                    <form method="post">
+                                        <button ><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                                          <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z"/>
+                                        </svg>
+                                            </button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                    </tbody>
+                </table>
+                <br><br>
+                {{ user_map|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
