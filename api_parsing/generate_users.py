@@ -16,19 +16,9 @@ def create_table():
     """
     Create table for user information
     """
-    sql_create_users_table = """ CREATE TABLE IF NOT EXISTS users_table (
-                                            id SERIAL,
-                                            full_name text NOT NULL,
-                                            street text NOT NULL,
-                                            city text NOT NULL,
-                                            state text NOT NULL,
-                                            country text NOT NULL,
-                                            latitude real not null,
-                                            longitude real not null,
-                                            dob text NOT NULL,
-                                            age int not null,
-                                            phone text not null
-                                        ); """
+    sql_create_users_table = """ CREATE TABLE IF NOT EXISTS users_table (id SERIAL, full_name text NOT NULL, street text NOT NULL,
+                        city text NOT NULL, state text NOT NULL, country text NOT NULL, latitude real not null,
+                        longitude real not null, dob text NOT NULL, age int not null, phone text not null); """
     try:
         db.execute(sql_create_users_table)
         print('Table created')
@@ -56,8 +46,8 @@ def parse_api(num):
     print('API response', response)
     for user in resp_result['results']:
         user_data = []
-        name = user['name']['title'] + ' ' + user['name']['first'] + ' ' + user['name']['last']
-        street = str(user['location']['street']['number']) + ' ' + user['location']['street']['name']
+        name = ' '.join([user['name']['title'], user['name']['first'], user['name']['last']])
+        street = ''.join([str(user['location']['street']['number']), user['location']['street']['name']])
         city = user['location']['city']
         state = user['location']['state']
         country = user['location']['country']
