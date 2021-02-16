@@ -2,6 +2,8 @@ import folium
 from flask import Flask, render_template, request, redirect
 from folium import Popup
 from sqlalchemy import create_engine
+import psycopg2
+
 
 db_name = 'users'
 db_user = 'username'
