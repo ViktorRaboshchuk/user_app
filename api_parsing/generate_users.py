@@ -16,9 +16,19 @@ def create_table():
     """
     Create table for user information
     """
-    sql_create_users_table = """ CREATE TABLE IF NOT EXISTS users_table (id SERIAL, full_name text NOT NULL, street text NOT NULL,
-                        city text NOT NULL, state text NOT NULL, country text NOT NULL, latitude real not null,
-                        longitude real not null, dob text NOT NULL, age int not null, phone text not null); """
+    sql_create_users_table = """ CREATE TABLE IF NOT EXISTS users_table (
+                                            id SERIAL,
+                                            full_name text NOT NULL,
+                                            street text NOT NULL,
+                                            city text NOT NULL,
+                                            state text NOT NULL,
+                                            country text NOT NULL,
+                                            latitude real not null,
+                                            longitude real not null,
+                                            dob text NOT NULL,
+                                            age int not null,
+                                            phone text not null
+                                        ); """
     try:
         db.execute(sql_create_users_table)
         print('Table created')
